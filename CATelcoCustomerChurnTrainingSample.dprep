@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 39,
+  "id": "ebb04ce3-ff20-40f4-a4e4-57f5fa246e29",
+  "activities": [
+    {
+      "id": "4fc6a110-96d1-4882-8cdc-b49f93a5ed02",
+      "name": "CATelcoCustomerChurnTrainingSample",
+      "blocks": [
+        {
+          "id": "7712e83b-ef0e-4f65-9fb7-784d5fba5c2f",
+          "type": "Microsoft.DPrep.ReferenceActivityBlock",
+          "arguments": {
+            "reference": {
+              "referenceType": 1,
+              "referenceContainerPath": "./CATelcoCustomerChurnTrainingSample.dsource",
+              "referencedActivityId": "2a2fcf61-5e4a-427e-96a9-40782b1b1f3b",
+              "referencedBranchId": null,
+              "referencedStep": null,
+              "anonymousSteps": null
+            }
+          }
+        },
+        {
+          "id": "993ac0cc-9703-4b75-8464-e96937958dba",
+          "type": "Microsoft.DPrep.ReplaceMissingStringValuesBlock",
+          "arguments": {
+            "columnIds": [
+              "age",
+              "annualincome",
+              "calldroprate",
+              "callfailurerate",
+              "callingnum",
+              "customerid",
+              "customersuspended",
+              "education",
+              "gender",
+              "homeowner",
+              "maritalstatus",
+              "monthlybilledamount",
+              "noadditionallines",
+              "numberofcomplaints",
+              "numberofmonthunpaid",
+              "numdayscontractequipmentplanexpiring",
+              "occupation",
+              "penaltytoswitch",
+              "state",
+              "totalminsusedinlastmonth",
+              "unpaidbalance",
+              "usesinternetservice",
+              "usesvoiceservice",
+              "percentagecalloutsidenetwork",
+              "totalcallduration",
+              "avgcallduration",
+              "churn",
+              "year",
+              "month"
+            ],
+            "replaceWith": "0",
+            "useNullAsMissing": true,
+            "useEmptyStringAsMissing": false
+          }
+        },
+        {
+          "id": "116d3c53-0ffd-4c40-a240-7df2be3f5de7",
+          "type": "Microsoft.DPrep.SelectRowsOnDistinctValuesInColumnBlock",
+          "arguments": {
+            "columnIds": [
+              "age",
+              "annualincome",
+              "calldroprate",
+              "callfailurerate",
+              "callingnum",
+              "customerid",
+              "customersuspended",
+              "education",
+              "gender",
+              "homeowner",
+              "maritalstatus",
+              "monthlybilledamount",
+              "noadditionallines",
+              "numberofcomplaints",
+              "numberofmonthunpaid",
+              "numdayscontractequipmentplanexpiring",
+              "occupation",
+              "penaltytoswitch",
+              "state",
+              "totalminsusedinlastmonth",
+              "unpaidbalance",
+              "usesinternetservice",
+              "usesvoiceservice",
+              "percentagecalloutsidenetwork",
+              "totalcallduration",
+              "avgcallduration",
+              "churn",
+              "year",
+              "month"
+            ]
+          }
+        },
+        {
+          "id": "9039bc65-dd8a-49bb-a32d-1876644e5f48",
+          "type": "Microsoft.DPrep.DeleteColumnBlock",
+          "arguments": {
+            "columnIds": [
+              "year"
+            ]
+          }
+        },
+        {
+          "id": "c0f38eee-7d09-4888-90d5-03c59b6e4554",
+          "type": "Microsoft.DPrep.DeleteColumnBlock",
+          "arguments": {
+            "columnIds": [
+              "month"
+            ]
+          }
+        },
+        {
+          "id": "afb12997-30ff-4e77-88c1-4ead623d83c5",
+          "type": "Microsoft.DPrep.DeriveColumnByExample",
+          "arguments": {
+            "columnId": "Column",
+            "dsl": "PABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBzAHcAaQB0AGMAaAAiACAAcgB1AGwAZQA9ACIAUwBpAG4AZwBsAGUAQgByAGEAbgBjAGgAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcwB0ACIAIAByAHUAbABlAD0AIgBUAHIAYQBuAHMAZgBvAHIAbQBhAHQAaQBvAG4AIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAZQAiACAAcgB1AGwAZQA9ACIAQQB0AG8AbQAiAD4APABMAGUAdABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGYAIgAgAGkAZAA9ACIATABlAHQAQwBvAGwAdQBtAG4ATgBhAG0AZQAiAD4APABWAGEAcgBpAGEAYgBsAGUAIABzAHkAbQBiAG8AbAA9ACIAYwBvAGwAdQBtAG4ATgBhAG0AZQAiAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAaQBkAHgAIgA+ADwAIQBbAEMARABBAFQAQQBbACIAYQBnAGUAIgBdAF0APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APAAvAFYAYQByAGkAYQBiAGwAZQA+ADwATABlAHQATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBsAGUAdABPAHAAdABpAG8AbgBzACIAIABpAGQAPQAiAEwAZQB0AFgAIgA+ADwAVgBhAHIAaQBhAGIAbABlACAAcwB5AG0AYgBvAGwAPQAiAHgAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAdgAiACAAcgB1AGwAZQA9ACIAQwBoAG8AbwBzAGUASQBuAHAAdQB0ACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAcwAiACAALwA+ADwAVgBhAHIAaQBhAGIAbABlAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAYwBvAGwAdQBtAG4ATgBhAG0AZQAiACAALwA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwALwBWAGEAcgBpAGEAYgBsAGUAPgA8AEwAZQB0AE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAYwBvAG4AdgAiACAAaQBkAD0AIgBMAGUAdABTAGgAYQByAGUAZABQAGEAcgBzAGUAZABOAHUAbQBiAGUAcgAiAD4APABWAGEAcgBpAGEAYgBsAGUAIABzAHkAbQBiAG8AbAA9ACIAcwBoAGEAcgBlAGQAUABhAHIAcwBlAGQATgB1AG0AYgBlAHIAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAaQBuAHAAdQB0AE4AdQBtAGIAZQByACIAIAByAHUAbABlAD0AIgB+AGMAbwBuAHYAZQByAHQAXwBpAG4AcAB1AHQATgB1AG0AYgBlAHIAXwBwAGEAcgBzAGUAZABOAHUAbQBiAGUAcgAiAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBwAGEAcgBzAGUAZABOAHUAbQBiAGUAcgAiACAAcgB1AGwAZQA9ACIAUABhAHIAcwBlAE4AdQBtAGIAZQByACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAFMAUwAiACAAcgB1AGwAZQA9ACIAVwBoAG8AbABlAEMAbwBsAHUAbQBuACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHgAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBuAHUAbQBiAGUAcgBGAG8AcgBtAGEAdABEAGUAdABhAGkAbABzACIAPgA8AE4AdQBtAGIAZQByAEYAbwByAG0AYQB0AEQAZQB0AGEAaQBsAHMAIABTAGUAcABhAHIAYQB0AG8AcgBDAGgAYQByAD0AIgAsACIAIABEAGUAYwBpAG0AYQBsAE0AYQByAGsAQwBoAGEAcgA9ACIALgAiACAALwA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8AVgBhAHIAaQBhAGIAbABlAD4APABMAGUAdABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAF8ATABlAHQAQgAwACIAIABpAGQAPQAiAEwAZQB0AFMAaABhAHIAZQBkAE4AdQBtAGIAZQByAEYAbwByAG0AYQB0ACIAPgA8AFYAYQByAGkAYQBiAGwAZQAgAHMAeQBtAGIAbwBsAD0AIgBzAGgAYQByAGUAZABOAHUAbQBiAGUAcgBGAG8AcgBtAGEAdAAiAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBuAHUAbQBiAGUAcgBGAG8AcgBtAGEAdAAiACAAcgB1AGwAZQA9ACIAQgB1AGkAbABkAE4AdQBtAGIAZQByAEYAbwByAG0AYQB0ACIAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBtAGkAbgBUAHIAYQBpAGwAaQBuAGcAWgBlAHIAbwBzACIAPgA8ACEAWwBDAEQAQQBUAEEAWwBuAHUAbABsAF0AXQA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBtAGEAeABUAHIAYQBpAGwAaQBuAGcAWgBlAHIAbwBzACIAPgA8ACEAWwBDAEQAQQBUAEEAWwBuAHUAbABsAF0AXQA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBtAGkAbgBUAHIAYQBpAGwAaQBuAGcAWgBlAHIAbwBzAEEAbgBkAFcAaABpAHQAZQBzAHAAYQBjAGUAIgA+ADwAIQBbAEMARABBAFQAQQBbAG4AdQBsAGwAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwATABpAHQAZQByAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAG0AaQBuAEwAZQBhAGQAaQBuAGcAWgBlAHIAbwBzACIAPgA8ACEAWwBDAEQAQQBUAEEAWwAxAFUAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwATABpAHQAZQByAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAG0AaQBuAEwAZQBhAGQAaQBuAGcAWgBlAHIAbwBzAEEAbgBkAFcAaABpAHQAZQBzAHAAYQBjAGUAIgA+ADwAIQBbAEMARABBAFQAQQBbAG4AdQBsAGwAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwATABpAHQAZQByAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAG4AdQBtAGIAZQByAEYAbwByAG0AYQB0AEQAZQB0AGEAaQBsAHMAIgA+ADwATgB1AG0AYgBlAHIARgBvAHIAbQBhAHQARABlAHQAYQBpAGwAcwAgAEQAZQBjAGkAbQBhAGwATQBhAHIAawBDAGgAYQByAD0AIgAuACIAIAAvAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwALwBWAGEAcgBpAGEAYgBsAGUAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHIAYQBuAGcAZQBTAHQAcgBpAG4AZwAiACAAcgB1AGwAZQA9ACIAUgBhAG4AZwBlAEMAbwBuAGMAYQB0ACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHIAYQBuAGcAZQBTAHUAYgBzAHQAcgBpAG4AZwAiACAAcgB1AGwAZQA9ACIAUgBhAG4AZwBlAEYAbwByAG0AYQB0AE4AdQBtAGIAZQByACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHIAYQBuAGcAZQBOAHUAbQBiAGUAcgAiACAAcgB1AGwAZQA9ACIAUgBhAG4AZwBlAFIAbwB1AG4AZABOAHUAbQBiAGUAcgAiAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBzAGgAYQByAGUAZABQAGEAcgBzAGUAZABOAHUAbQBiAGUAcgAiACAALwA+ADwATABpAHQAZQByAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHIAbwB1AG4AZABpAG4AZwBTAHAAZQBjACIAPgA8AFIAbwB1AG4AZABpAG4AZwBTAHAAZQBjACAAWgBlAHIAbwA9ACIAMAAiACAARABlAGwAdABhAD0AIgAyADAAIgAgAE0AbwBkAGUAPQAiAEQAbwB3AG4AIgAgAC8APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APAAvAE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBzAGgAYQByAGUAZABOAHUAbQBiAGUAcgBGAG8AcgBtAGEAdAAiACAALwA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcgBhAG4AZwBlAFMAdAByAGkAbgBnACIAIAByAHUAbABlAD0AIgBSAGEAbgBnAGUAQwBvAG4AYwBhAHQAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcgBhAG4AZwBlAFMAdQBiAHMAdAByAGkAbgBnACIAIAByAHUAbABlAD0AIgBSAGEAbgBnAGUAQwBvAG4AcwB0AFMAdAByACIAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBzACIAPgA8ACEAWwBDAEQAQQBUAEEAWwAiAC0AIgBdAF0APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APAAvAE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgByAGEAbgBnAGUAUwB0AHIAaQBuAGcAIgAgAHIAdQBsAGUAPQAiAH4AYwBvAG4AdgBlAHIAdABfAHIAYQBuAGcAZQBTAHQAcgBpAG4AZwBfAHIAYQBuAGcAZQBTAHUAYgBzAHQAcgBpAG4AZwAiAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgByAGEAbgBnAGUAUwB1AGIAcwB0AHIAaQBuAGcAIgAgAHIAdQBsAGUAPQAiAFIAYQBuAGcAZQBGAG8AcgBtAGEAdABOAHUAbQBiAGUAcgAiAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgByAGEAbgBnAGUATgB1AG0AYgBlAHIAIgAgAHIAdQBsAGUAPQAiAFIAYQBuAGcAZQBSAG8AdQBuAGQATgB1AG0AYgBlAHIAIgA+ADwAVgBhAHIAaQBhAGIAbABlAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcwBoAGEAcgBlAGQAUABhAHIAcwBlAGQATgB1AG0AYgBlAHIAIgAgAC8APgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgByAG8AdQBuAGQAaQBuAGcAUwBwAGUAYwAiAD4APABSAG8AdQBuAGQAaQBuAGcAUwBwAGUAYwAgAFoAZQByAG8APQAiADEAOQAiACAARABlAGwAdABhAD0AIgAyADAAIgAgAE0AbwBkAGUAPQAiAFUAcABPAHIATgBlAHgAdAAiACAALwA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHMAaABhAHIAZQBkAE4AdQBtAGIAZQByAEYAbwByAG0AYQB0ACIAIAAvAD4APAAvAE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlAD4APAAvAE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlAD4APAAvAE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlAD4APAAvAE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlAD4APAAvAEwAZQB0AE4AbwBkAGUAPgA8AC8ATABlAHQATgBvAGQAZQA+ADwALwBMAGUAdABOAG8AZABlAD4APAAvAEwAZQB0AE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA=",
+            "examples": "{\"0\":{\"row\":0,\"sourceData\":{\"age\":\"12\"},\"example\":\"0-19\"}}",
+            "priorColumnIds": [
+              "age"
+            ],
+            "sourceColumnIds": [
+              "age"
+            ],
+            "outputType": 2,
+            "anchorColumnId": "age"
+          }
+        },
+        {
+          "id": "49bc12dc-8281-4b4f-8fe0-c52a95c31b06",
+          "type": "Microsoft.DPrep.ColumnRenameBlock",
+          "arguments": {
+            "newColumnId": "age_bin",
+            "columnId": "Column"
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "17b606bb-a5cd-40c9-9129-de52ac6158e0",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "4fc6a110-96d1-4882-8cdc-b49f93a5ed02",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": false
+        },
+        {
+          "id": "846b3de1-1664-4478-add6-7417ac3598eb",
+          "type": "Microsoft.DPrep.ValueCountInspector",
+          "arguments": {
+            "columnId": "age",
+            "numberOfTopValues": 6,
+            "descending": true,
+            "includeNulls": true,
+            "haloEffect": true,
+            "logScale": false
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "4fc6a110-96d1-4882-8cdc-b49f93a5ed02",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "2ac4af74-a348-4e26-92ff-dfc0c92b383d",
+          "type": "Microsoft.DPrep.ColumnStatsInspector",
+          "arguments": {
+            "columnId": "annualincome"
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "4fc6a110-96d1-4882-8cdc-b49f93a5ed02",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "3157d8dd-9c20-4ef7-97bb-38693f8ce8e2",
+          "type": "Microsoft.DPrep.ColumnStatsInspector",
+          "arguments": {
+            "columnId": "age"
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "4fc6a110-96d1-4882-8cdc-b49f93a5ed02",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "aec7725d-5108-4034-9780-b144ef3cc8e9",
+          "type": "Microsoft.DPrep.HistogramInspector",
+          "arguments": {
+            "columnId": "age",
+            "numberOfBreaks": 6,
+            "defaultBucketing": true,
+            "haloEffect": true,
+            "densityPlot": true,
+            "logScale": false
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "4fc6a110-96d1-4882-8cdc-b49f93a5ed02",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "f79f80e1-9d36-455f-ae76-722ba1a1961a",
+          "type": "Microsoft.DPrep.ValueCountInspector",
+          "arguments": {
+            "columnId": "churn",
+            "numberOfTopValues": 6,
+            "descending": true,
+            "includeNulls": true,
+            "haloEffect": true,
+            "logScale": false
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "4fc6a110-96d1-4882-8cdc-b49f93a5ed02",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}

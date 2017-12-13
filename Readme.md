@@ -1,6 +1,6 @@
 # Customer churn prediction using Azure Machine Learning
 
-## Link to the Microsoft DOCS site
+## Link to the Microsoft DOCS sites
 
 The detailed documentation for this churn prediction example includes the step-by-step walk-through:
 [https://docs.microsoft.com/azure/machine-learning/preview/scenario-churn-prediction](https://docs.microsoft.com/azure/machine-learning/preview/scenario-churn-prediction)
@@ -11,7 +11,10 @@ The detailed documentation for this churn prediction example includes the step-b
 The public GitHub repository for this churn prediction example contains all the code samples:
 [https://github.com/Azure/MachineLearningSamples-ChurnPrediction](https://github.com/Azure/MachineLearningSamples-ChurnPrediction)
 
+## Link to the Machine Learning Studio with the same exmaple
 
+ML Studio project:
+[ML Studio project link](https://europewest.studio.azureml.net/Home/ViewWorkspaceCached/9da63fd7ad1b4f9387a826d42f735606#Workspaces/Experiments/Experiment/9da63fd7ad1b4f9387a826d42f735606.f-id.d2417eb7fddc44ebbecc37cc9497d03c/ViewExperiment)
 ## Overview
 
 On average, keeping existing customers is five times cheaper than the cost of recruiting new ones. As a result, marketing executives often find themselves trying to estimate the likelihood of customer churn and finding the necessary actions to minimize the churn rate.

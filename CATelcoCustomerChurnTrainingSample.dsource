@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 39,
+  "id": "8c758595-419b-454e-b923-33ab9ae357cb",
+  "activities": [
+    {
+      "id": "2a2fcf61-5e4a-427e-96a9-40782b1b1f3b",
+      "name": "CATelcoCustomerChurnTrainingSample",
+      "blocks": [
+        {
+          "id": "a74b8d41-11b6-4df4-8a22-83c1eea5b3c9",
+          "type": "Microsoft.DPrep.DataSourceBlock",
+          "arguments": {
+            "path": {
+              "target": 0,
+              "resourceDetails": [
+                {
+                  "path": "./data/CATelcoCustomerChurnTrainingSample.csv"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "0b6f0628-e48e-45c3-a2e4-a2d5dc1e02c0",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "preview": false,
+            "columnHeadersMode": 1,
+            "separator": ",",
+            "fileEncoding": 0,
+            "skipRowsMode": 0,
+            "handleQuotedLineBreaks": false
+          }
+        },
+        {
+          "id": "1235ae14-b402-4f47-b967-28c41fd33813",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "columnId": "numberofcomplaints",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "unpaidbalance",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "calldroprate",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "year",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "callfailurerate",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "numdayscontractequipmentplanexpiring",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "percentagecalloutsidenetwork",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "callingnum",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "annualincome",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "penaltytoswitch",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "avgcallduration",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "customerid",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "monthlybilledamount",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "totalminsusedinlastmonth",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "churn",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "totalcallduration",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "age",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "numberofmonthunpaid",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "month",
+                "typeProperty": 3,
+                "typeArguments": {}
+              }
+            ]
+          }
+        },
+        {
+          "id": "7304cf7e-a37b-49b4-8bc6-76c6b83fbb72",
+          "type": "Microsoft.DPrep.SampleBlock",
+          "arguments": {
+            "samples": [
+              {
+                "sampleId": "c2bd85fb-914d-4401-84d6-0562f8844c88",
+                "sampleRevision": "f99095f1-3421-44cb-853b-180c975cc668",
+                "sampleName": "Full File",
+                "sampleRunner": {
+                  "id": null,
+                  "type": 0
+                },
+                "remoteGeneratorProperties": {},
+                "sampleStrategy": 3,
+                "topArguments": {
+                  "sampleCount": 10000
+                },
+                "randomNArguments": {
+                  "sampleCount": 10000
+                },
+                "randomPercentArguments": {
+                  "probability": 0.1
+                },
+                "allowAutoGen": true,
+                "isDisabled": false
+              }
+            ],
+            "activeSample": "c2bd85fb-914d-4401-84d6-0562f8844c88"
+          }
+        },
+        {
+          "id": "a1dba83f-a0af-49b4-b315-82c093cc7d55",
+          "type": "Microsoft.DPrep.HandlePathColumnBlock",
+          "arguments": {
+            "pathColumnOperation": 0
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "b935766f-e59e-4237-94c7-b45d1ade4765",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "2a2fcf61-5e4a-427e-96a9-40782b1b1f3b",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": false
+        },
+        {
+          "id": "0da1ce1c-5d2e-40b6-b25c-7330d3dfbf7a",
+          "type": "Microsoft.DPrep.DataProfileInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "2a2fcf61-5e4a-427e-96a9-40782b1b1f3b",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 0,
+              "referencedStepId": "a1dba83f-a0af-49b4-b315-82c093cc7d55",
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "568e3133-5462-4717-8739-f6bfa99fa661",
+          "type": "Microsoft.DPrep.ValueCountInspector",
+          "arguments": {
+            "columnId": "churn",
+            "numberOfTopValues": 6,
+            "descending": true,
+            "includeNulls": true,
+            "haloEffect": true,
+            "logScale": false
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "2a2fcf61-5e4a-427e-96a9-40782b1b1f3b",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}
